@@ -1,0 +1,28 @@
+14:38:52 **** Incremental Build of configuration Debug for project LED_Driver ****
+make -j14 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32F429xx -c -I../Inc -I"C:/Users/marin/Documents/GitHub/rust_rtos/src/STM32CubeIDE/LED_Driver/chip_drivers/Device/ST/STM32F4xx/Include" -I"C:/Users/marin/Documents/GitHub/rust_rtos/src/STM32CubeIDE/LED_Driver/chip_drivers/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:27:9: warning: implicit declaration of function 'uart_tx_init' [-Wimplicit-function-declaration]
+   27 |         uart_tx_init();
+      |         ^~~~~~~~~~~~
+../Src/main.c:31:17: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   31 |                 printf("Hello /n/r");
+      |                 ^~~~~~
+../Src/main.c:16:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   15 | #include <stdint.h>
+  +++ |+#include <stdio.h>
+   16 | //#include "uart.h"
+../Src/main.c:31:17: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+   31 |                 printf("Hello /n/r");
+      |                 ^~~~~~
+../Src/main.c:31:17: note: include '<stdio.h>' or provide a declaration of 'printf'
+arm-none-eabi-gcc -o "LED_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\marin\Documents\GitHub\rust_rtos\src\STM32CubeIDE\LED_Driver\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LED_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: LED_Driver.elf has a LOAD segment with RWX permissions
+C:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Src/main.o: in function `main':
+C:/Users/marin/Documents/GitHub/rust_rtos/src/STM32CubeIDE/LED_Driver/Debug/../Src/main.c:27:(.text.main+0x4): undefined reference to `uart_tx_init'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:63: LED_Driver.elf] Error 1
+"make -j14 all" terminated with exit code 2. Build might be incomplete.
+
+14:38:53 Build Failed. 2 errors, 4 warnings. (took 683ms)
+

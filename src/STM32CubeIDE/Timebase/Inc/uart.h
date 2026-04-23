@@ -1,8 +1,5 @@
 /*
  * uart.h
- *
- *  Created on: 30 Jun 2023
- *  Author: George Calin
  * 	Target Development Board: STM32 Nucleo F429ZI
  */
 

@@ -1,8 +1,6 @@
 /*
  * timebase.c
  *
- *  Created on: 3 Jul 2023
- *  Author: George Calin
  * 	Target Development Board: STM32 Nucleo F429ZI
  */
 
@@ -44,10 +42,10 @@ void delay(uint32_t delay) // delay is in seconds
 
    if(wait < MAX_DELAY)
    {
-	   wait += (uint32_t) tick_frequency;
+	   wait += tick_frequency;
    }
 
-   while(current_tick - get_current_tick() < wait)
+   while((get_current_tick() - current_tick) < wait)
    {
 
    }

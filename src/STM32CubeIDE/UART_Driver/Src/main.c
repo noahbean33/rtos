@@ -1,7 +1,6 @@
 /**
  ******************************************************************************
  * @file           : main.c
- * @author         : George Calin
  * @brief          : Main program body
  ******************************************************************************
   A driver for the onboard LED on the NUCLEO F429ZI board.
@@ -28,6 +27,6 @@ int main(void)
 
 	for(;;)
 	{
-		printf("Hello from STM32CubeIDE, Alligator!!. \n\r");
+		printf("Hello from STM32CubeIDE \n\r");
 	}
 }

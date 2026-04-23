@@ -1,0 +1,5 @@
+../Src/uart.c:46:5:__io_putchar	1
+../Src/uart.c:53:6:uart_tx_init	1
+../Src/uart.c:81:13:set_the_baudrate	1
+../Src/uart.c:86:17:compute_baudrate	1
+../Src/uart.c:91:13:usart_write	2

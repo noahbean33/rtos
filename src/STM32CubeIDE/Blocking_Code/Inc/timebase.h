@@ -1,8 +1,6 @@
 /*
  * timebase.h
  *
- *  Created on: 3 Jul 2023
- *  Author: George Calin
  * 	Target Development Board: STM32 Nucleo F429ZI
  */
 

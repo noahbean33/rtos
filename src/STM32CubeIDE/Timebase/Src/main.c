@@ -1,7 +1,6 @@
 /**
  ******************************************************************************
  * @file           : main.c
- * @author         : George Calin
  * @brief          : Main program body
  ******************************************************************************
   A driver for the onboard LED on the NUCLEO F429ZI board.
@@ -31,6 +30,6 @@ int main(void)
 	for(;;)
 	{
 		delay(1);
-		printf("A second has passed!!. \n\r");
+		printf("A second has passed. \n\r");
 	}
 }
