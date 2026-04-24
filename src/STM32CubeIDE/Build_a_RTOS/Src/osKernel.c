@@ -1,8 +1,6 @@
 /*
  * osKernel.c
  *
- *  Created on: 7 Jul 2023
- *  Author: George Calin
  * 	Target Development Board: STM32 Nucleo F429ZI
  */
 

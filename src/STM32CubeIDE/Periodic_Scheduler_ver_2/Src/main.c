@@ -1,7 +1,6 @@
 /**
  ******************************************************************************
  * @file           : main.c
- * @author         : George Calin
  * @brief          : Main program body
  ******************************************************************************
   A driver for the onboard LED on the NUCLEO F429ZI board.

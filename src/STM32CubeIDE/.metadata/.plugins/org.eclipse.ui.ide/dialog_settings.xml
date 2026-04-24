@@ -9,6 +9,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\marin\Documents\GitHub\rust_rtos\src\STM32CubeIDE\Periodic_Scheduler_ver_1"/>
 			<item value="C:\Users\marin\Documents\GitHub\rust_rtos\src\STM32CubeIDE\Periodic_Scheduler_ver_2"/>
 			<item value="C:\Users\marin\Documents\GitHub\rust_rtos\src\STM32CubeIDE\Spinlock_Semaphore"/>
 			<item value="C:\Users\marin\Documents\GitHub\rust_rtos\src\STM32CubeIDE\Cooperative_Scheduler"/>

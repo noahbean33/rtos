@@ -1,8 +1,6 @@
 /*
  * led.c
  *
- *  Created on: Jun 29, 2023
- *  Author: George Calin
  * 	Target Development Board: STM32 Nucleo F429ZI
  */
 
