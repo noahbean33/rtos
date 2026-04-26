@@ -1,0 +1,6 @@
+#!/usr/sbin/ply
+
+kretprobe:__arm64_sys_read
+{
+    @["retsize"] = quantize(retval);
+}

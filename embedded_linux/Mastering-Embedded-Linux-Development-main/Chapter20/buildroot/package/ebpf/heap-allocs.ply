@@ -1,0 +1,6 @@
+#!/usr/sbin/ply
+
+kprobe:__arm64_sys_brk
+{
+    @heap_allocs[comm, kpid] = count();
+}
