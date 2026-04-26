@@ -1,0 +1,23 @@
+
+***************STM32F4-DISCO Pin Assignment************************************
+
+
+
+GLCD_ST7735
+
+SCK  			:   PB13
+MOSI (SDA)		:   PB15
+RS				:	PB14
+DC				:	PB12
+CS				:	PB10
+
+*************** STM32F4-NUCLEO Pin Assignment************************************
+
+
+GLCD_ST7735
+
+SCK  			:   PB10
+MOSI (SDA)		:   PC3
+RS				:	PB5
+DC				:	PB4
+CS				:	PB3
