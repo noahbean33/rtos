@@ -1,0 +1,68 @@
+#include <zephyr/dt-bindings/display/panel.h>
+
+/* Fix 1b: HSI PLL → 64 MHz SYSCLK (max from HSI).
+ * HSI (8 MHz) / 2 (fixed F3 divider) × 16 = 64 MHz.
+ * APB2 = 64 MHz → SPI1 DIV2 = 32 MHz (was 4 MHz → 8× faster).
+ * IMPORTANT: Must use pristine build (`west build -p`) when changing
+ * clock-frequency so CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC updates
+ * and flash wait states are set correctly (2 WS for >48 MHz).
+ */
+&clk_hsi {
+    status = "okay";
+};
+
+&pll {
+    prediv = <1>;
+    mul = <16>;
+    clocks = <&clk_hsi>;
+    status = "okay";
+};
+
+&rcc {
+    clocks = <&pll>;
+    clock-frequency = <DT_FREQ_M(64)>;
+    ahb-prescaler  = <1>;
+    apb1-prescaler = <2>;
+    apb2-prescaler = <1>;
+};
+
+/ {
+    chosen {
+        zephyr,display = &gc9a01_display;
+    };
+
+    mipi_dbi_gc9a01 {
+        compatible = "zephyr,mipi-dbi-spi";
+        spi-dev = <&spi1>;
+        dc-gpios    = <&gpiob 1 GPIO_ACTIVE_HIGH>;
+        reset-gpios = <&gpiob 8 GPIO_ACTIVE_LOW>;
+        write-only;
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        gc9a01_display: gc9a01@0 {
+            compatible = "galaxycore,gc9x01x";
+            reg = <0>;
+            mipi-max-frequency = <DT_FREQ_M(60)>;
+            width  = <240>;
+            height = <240>;
+            display-inversion;
+            pixel-format = <PANEL_PIXEL_FORMAT_RGB_565>;
+        };
+    };
+};
+
+&spi1 {
+    status = "okay";
+    pinctrl-0 = <&spi1_sck_pa5 &spi1_mosi_pa7 &spi1_miso_pa6>;
+    pinctrl-names = "default";
+    cs-gpios = <&gpioa 4 GPIO_ACTIVE_LOW>;
+};
+
+/* Set MPU6050 accelerometer sample rate to 100 Hz (1000 / (1+9)).
+ * The mpu6050@68 node already exists in the board DTS under &i2c1. */
+&i2c1 {
+    mpu6050@68 {
+        smplrt-div = <9>;
+    };
+};
