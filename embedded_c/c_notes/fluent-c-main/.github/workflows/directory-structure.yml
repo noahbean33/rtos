@@ -1,0 +1,36 @@
+name: Directory Structure
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Build hashlib    
+      working-directory: directory-structure/hashlib
+      run: make
+      
+    - name: Copy hashlib
+      working-directory: directory-structure/main
+      run: |
+        mkdir hashlib
+        cp ../hashlib/hashlib.a ./hashlib/hashlib.a
+        cp ../hashlib/inc/adlerhash.h ./hashlib/adlerhash.h
+        cp ../hashlib/inc/bernsteinhash.h ./hashlib/bernsteinhash.h
+
+    - name: Build main application    
+      working-directory: directory-structure/main
+      run: make
+
+    - name: Run main application    
+      working-directory: directory-structure/main
+      run: ./main-application

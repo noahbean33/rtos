@@ -1,0 +1,26 @@
+[package]
+name = "flappy-bird-ffi"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+panic-halt = "*"
+embedded-hal-1 = {package = "embedded-hal", version = "1.0.0"}
+embedded_hal_mpu6050_driver = {path = "crates/embedded_hal_mpu6050_driver/", default-features = false}
+rtt-target = "0.6.1"
+libm = "0.2.15"
+
+[dependencies.stm32f3xx-hal]
+version = "0.10.0"
+features = ["stm32f303xc"]
+
+[dependencies.cortex-m]
+version = "0.7.7"
+features = ["critical-section-single-core"]
+
+[features]
+default = []
+log = []
+
+[build-dependencies]
+cc = "1.0"
